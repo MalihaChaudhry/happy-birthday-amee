@@ -71,7 +71,7 @@ const Collage = () => {
                 <div className='image'>
                   <img
                     className='image'
-                    src={`/images/${image.src}.jpg`}
+                    src={`images/${image.src}.jpg`}
                     alt={image.alt}
                     onClick={() => {
                       if (image.video) {
