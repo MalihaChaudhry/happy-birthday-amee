@@ -3,9 +3,9 @@ import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/happy-birthday-amee',
   plugins: [react()],
   define: {
     global: {},
   },
-  assetsInclude: ['**/*.MOV'],
 });
