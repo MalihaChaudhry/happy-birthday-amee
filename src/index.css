@@ -207,7 +207,8 @@ h1 {
     width: 100%;
   }
 
-  h1 {
-    font-size: 3rem;
+  .header {
+    font-size: 4rem;
+    line-height: 40px;
   }
 }
