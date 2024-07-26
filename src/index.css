@@ -14,7 +14,7 @@
 }
 
 html {
-  background-color: var(--peach);
+  background-color: var(--lightpeach);
 }
 
 body {
@@ -133,12 +133,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000;
+  background-color: var(--lightpeach);
+}
+
+h1 {
+  margin: 20px;
 }
 
 .header {
   font-weight: 600;
-  font-size: 70px;
+  font-size: 90px;
+  font-family: 'Birthstone', sans-serif;
   line-height: 65px;
   letter-spacing: 10px;
   text-align: center;
@@ -170,7 +175,7 @@ body {
 }
 
 .footer {
-  background-color: #333;
+  background-color: var(--darkgreen);
   color: #f4f4f4;
   padding: 20px 0;
   font-family: 'Poppins', sans-serif;
