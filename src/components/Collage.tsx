@@ -1,130 +1,116 @@
-import React, { useEffect, useState } from 'react';
-import Video from './Video';
-import Modal from 'react-modal';
-
-const customStyles = {
-  content: {
-    maxHeight: '90vh',
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
+import React, { useState } from 'react';
+import MyModal from './MyModal';
 
 const Collage = () => {
-  const [currentVideo, setCurrentVideo] = useState<string | null>(null);
+  const [currentVideo, setCurrentVideo] = useState('');
+  const [text, setText] = useState('');
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const images = [
     {
-      src: '../../images/Amee&AteyaAuntie.jpg',
+      src: 'Amee&AteyaAuntie',
       alt: 'Amee & Ateya Auntie',
       video: null,
+      className: 'Ateya',
       w: '3',
     },
     {
-      src: '../../images/Amee&Ish.jpg',
+      src: 'Amee&Ish',
       alt: 'Amee and Ish',
-      video: '../../videos/Noah.mp4',
+      video: 'Ish',
+      className: 'Ish',
       w: '3',
     },
     {
-      src: '../../images/Amee&Me.jpg',
+      src: 'Amee&Me',
       alt: 'Amee and Me!',
-      video: '../../videos/Maliha.mp4',
+      video: 'Maliha',
+      className: 'Maliha',
       w: '2',
     },
     {
-      src: '../../images/Amee&Noey.jpg',
+      src: 'Amee&Noey',
       alt: 'Amee and Noah',
-      video: '../../videos/Noah.mp4',
+      video: 'Noah',
+      className: 'Noah',
       w: '2',
     },
     {
-      src: '../../images/Amee&Mishu.jpg',
+      src: 'Amee&Mishu',
       alt: 'Amee and Mishu',
-      video: '../../videos/Mishu.mp4',
+      video: 'Mishu',
+      className: 'Mishu',
       w: '2',
     },
     {
-      src: '../../images/Amee&Shuvy2.jpg',
+      src: 'Amee&Shuvy2',
       alt: 'Amee and Shuvy',
-      video: '../../videos/Shuvy.mp4',
+      video: 'Shuvy',
+      className: 'Shuvy',
       w: '3',
     },
     {
-      src: '../../images/Amee&Ummad.jpg',
+      src: 'Amee&Ummad',
       alt: 'Amee and Ummi',
-      video: '../../videos/Ummi.mp4',
+      video: 'Ummi',
+      className: 'Ummi',
       w: '3',
     },
   ];
 
-  const playVideo = (videoSrc) => {
+  const playVideo = (videoSrc: string) => {
     setCurrentVideo(videoSrc);
-    setIsOpen(true);
   };
 
   const closeVideo = () => {
-    setCurrentVideo(null);
+    setCurrentVideo('');
+    setText('');
     setIsOpen(false);
   };
 
-  const showMessage = () => {
-    setIsOpen(true);
-    <Modal
-      isOpen={modalIsOpen}
-      onRequestClose={closeVideo}
-      style={customStyles}
-      contentLabel='Text Modal'
-    >
-      <p>
-        Dear Zoya baji, Happy Birthday!!! Another year of an amazing life that
-        deserves to be celebrated everyday. Thank you for always being there for
-        me. You are a true gift from Allah and a bright presence in my life.
-        Lots of love, Ateya.
-      </p>
-    </Modal>;
-  };
-
-  // useEffect(() => {
-  //   playVideo(currentVideo);
-  // }, [currentVideo]);
-
   return (
-    <div className='container'>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeVideo}
-        style={customStyles}
-        contentLabel='Video Modal'
-      >
-        {currentVideo && <Video src={currentVideo} onClose={closeVideo} />}
-      </Modal>
-      <div className='gallery'>
-        {images.map((image, i) => (
-          <div key={i} className={`gallery-container  w-${image.w} h-2`}>
-            <div className='gallery-item'>
-              <div className='image'>
-                <img
-                  className='image'
-                  src={image.src}
-                  alt={image.alt}
-                  onClick={
-                    image.video
-                      ? () => playVideo(image.video)
-                      : () => showMessage()
-                  }
-                />
+    <>
+      <div className='container'>
+        <div className='gallery'>
+          {images.map((image, i) => (
+            <div key={i} className={`gallery-container  w-${image.w} h-2`}>
+              <div className='gallery-item'>
+                <div className='image'>
+                  <img
+                    className={`image img-${image.className}`}
+                    src={`../../images/${image.src}.jpg`}
+                    alt={image.alt}
+                    onClick={() => {
+                      if (image.video) {
+                        playVideo(image.video);
+                      } else {
+                        setText(
+                          `Dear Zoya baji,
+                          Happy Birthday!!! Another year of an amazing life that deserves to be celebrated everyday.
+                          Thank you for always being there for me. You are a true gift from Allah and a bright presence in my life.
+                          
+                          Lots of love, Ateya.`
+                        );
+                      }
+                      setIsOpen(true);
+                    }}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+      {modalIsOpen && (
+        <MyModal
+          isOpen={modalIsOpen}
+          onVideoClose={closeVideo}
+          text={text ? text : ''}
+          textOnly={Boolean(text)}
+          videoUrl={currentVideo ? currentVideo : ''}
+        />
+      )}
+    </>
   );
 };
 

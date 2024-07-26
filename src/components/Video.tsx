@@ -1,15 +1,10 @@
 import React from 'react';
 
-const Video = ({ src, onClose }) => {
+const Video = ({ src }) => {
   return (
-    <div className='video-container'>
-      <video controls autoPlay className='video'>
-        <source src={src} type='video/mp4' />
-      </video>
-      <button className='close-button' onClick={onClose}>
-        X
-      </button>
-    </div>
+    <video controls autoPlay className='video'>
+      <source src={`../../videos/${src}.mp4`} type='video/mp4' />
+    </video>
   );
 };
 

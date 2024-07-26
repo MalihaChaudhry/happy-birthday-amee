@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 :root {
   --darkgreen: #678215;
   --peach: #fcd4be;
@@ -50,8 +52,12 @@ body {
   transition: 0.5s ease-in-out;
 }
 
-.gallery-item:hover .image img {
+/* .gallery-item:hover .image img {
   transform: scale(1.2);
+  } */
+
+.img-Maliha {
+  object-position: 50% 50%;
 }
 
 .gallery-item .text {
@@ -74,6 +80,13 @@ body {
   animation: move-down 0.3s linear;
   padding: 1rem;
   width: 100%;
+}
+
+.modal-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.7rem;
+  display: grid;
+  place-items: center;
 }
 
 .w-1 {
@@ -100,18 +113,9 @@ body {
   grid-row: span 3;
 }
 
-.video-container {
-  height: 75%;
-  width: 75%;
-  z-index: 4;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
 .video {
-  height: 75%;
-  width: 75%;
+  height: 50%;
+  width: 50%;
 }
 
 .close-button {
@@ -124,6 +128,7 @@ body {
   padding: 5px 10px;
   cursor: pointer;
   z-index: 5;
+  font-size: 2rem;
 }
 
 @keyframes move-down {
@@ -146,5 +151,9 @@ body {
   .w-2,
   .w-3 {
     grid-column: span 6;
+  }
+  .video {
+    height: 100%;
+    width: 100%;
   }
 }
