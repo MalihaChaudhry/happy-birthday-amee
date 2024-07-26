@@ -1,0 +1,150 @@
+:root {
+  --darkgreen: #678215;
+  --peach: #fcd4be;
+  --white: #f8f8ef;
+  --lightpeach: #ffe8de;
+  --orange: #fd832b;
+  --yellow: #fec62d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--peach);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 200px 300px;
+  gap: 0.8rem;
+  grid-auto-flow: dense;
+}
+
+.gallery-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.gallery-item .image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gallery-item .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.gallery-item:hover .image img {
+  transform: scale(1.2);
+}
+
+.gallery-item .text {
+  opacity: 0;
+  color: var(--white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  pointer-events: none;
+  z-index: 4;
+  transition: 0.3s ease-in-out;
+  -webkit-backdrop-filter: blur(5px) saturation(1.8);
+  backdrop-filter: blur(5px) saturation(1.8);
+}
+
+.gallery-item:hover .text {
+  opacity: 1;
+  animation: move-down 0.3s linear;
+  padding: 1rem;
+  width: 100%;
+}
+
+.w-1 {
+  grid-column: span 1;
+}
+
+.w-2 {
+  grid-column: span 2;
+}
+
+.w-3 {
+  grid-column: span 3;
+}
+
+.h-1 {
+  grid-row: span 1;
+}
+
+.h-2 {
+  grid-row: span 2;
+}
+
+.h-3 {
+  grid-row: span 3;
+}
+
+.video-container {
+  height: 75%;
+  width: 75%;
+  z-index: 4;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.video {
+  height: 75%;
+  width: 75%;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--orange);
+  color: var(--white);
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+@keyframes move-down {
+  0% {
+    top: 10%;
+  }
+  50% {
+    top: 35%;
+  }
+  100% {
+    top: 50%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .w-1,
+  .w-2,
+  .w-3 {
+    grid-column: span 6;
+  }
+}
