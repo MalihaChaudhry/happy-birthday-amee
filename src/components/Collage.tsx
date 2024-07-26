@@ -8,52 +8,45 @@ const Collage = () => {
 
   const images = [
     {
-      src: 'Amee&AteyaAuntie',
+      src: 'ateya',
       alt: 'Amee & Ateya Auntie',
       video: null,
-      className: 'Ateya',
       w: '3',
     },
     {
-      src: 'Amee&Ish',
+      src: 'ish',
       alt: 'Amee and Ish',
       video: 'Ish',
-      className: 'Ish',
       w: '3',
     },
     {
-      src: 'Amee&Me',
+      src: 'maliha',
       alt: 'Amee and Me!',
       video: 'Maliha',
-      className: 'Maliha',
       w: '2',
     },
     {
-      src: 'Amee&Noey',
+      src: 'noah',
       alt: 'Amee and Noah',
       video: 'Noah',
-      className: 'Noah',
       w: '2',
     },
     {
-      src: 'Amee&Mishu',
+      src: 'mishu',
       alt: 'Amee and Mishu',
       video: 'Mishu',
-      className: 'Mishu',
       w: '2',
     },
     {
-      src: 'Amee&Shuvy2',
+      src: 'shuvy',
       alt: 'Amee and Shuvy',
       video: 'Shuvy',
-      className: 'Shuvy',
       w: '3',
     },
     {
-      src: 'Amee&Ummad',
+      src: 'ummad',
       alt: 'Amee and Ummi',
       video: 'Ummi',
-      className: 'Ummi',
       w: '3',
     },
   ];
@@ -77,7 +70,7 @@ const Collage = () => {
               <div className='gallery-item'>
                 <div className='image'>
                   <img
-                    className={`image img-${image.className}`}
+                    className='image'
                     src={`/images/${image.src}.jpg`}
                     alt={image.alt}
                     onClick={() => {
