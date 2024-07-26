@@ -20,13 +20,13 @@ const Collage = () => {
       w: '3',
     },
     {
-      src: 'maliha',
+      src: 'maliha2',
       alt: 'Amee and Me!',
       video: 'Maliha',
       w: '2',
     },
     {
-      src: 'noah',
+      src: 'noah2',
       alt: 'Amee and Noah',
       video: 'Noah',
       w: '2',
@@ -38,7 +38,7 @@ const Collage = () => {
       w: '2',
     },
     {
-      src: 'shuvy',
+      src: 'shuvy2',
       alt: 'Amee and Shuvy',
       video: 'Shuvy',
       w: '3',
