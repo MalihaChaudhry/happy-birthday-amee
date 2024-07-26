@@ -4,7 +4,6 @@ import Modal from 'react-modal';
 
 type MyModalProps = {
   isOpen: boolean;
-  onClose?(): void;
   styles?: object;
   textOnly?: boolean;
   text?: string;
@@ -17,12 +16,12 @@ const customStyles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'tomato',
   },
 };
 
 const MyModal = ({
   isOpen,
-  onClose,
   styles = {},
   textOnly = false,
   text,
